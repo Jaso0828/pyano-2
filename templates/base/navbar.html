@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">PyAno</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Pianos
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'pianos_list' %}">All pianos</a></li>
+                <li><a class="dropdown-item" href="{% url 'pianos_create' %}">Create piano</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Chords
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'chords_list' %}">All chords</a></li>
+                <li><a class="dropdown-item" href="{% url 'chords_create' %}">Create chord</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about_us' %} ">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Admin pages</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

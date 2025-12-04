@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+
+{% block page_content %}
+<a href="{% url 'pianos_list' %}" class="btn btn-outline-info">Povratak na listu</a>
+
+<h1>{{ piano.model }}</h1>
+{% if piano.description %}
+    <p>Opis: {{ piano.description }}</p>
+{% endif %}
+<p>Tip klavira: {{ piano.type }}</p>
+<p>Kategorija klavira: {{ piano.category }}</p>
+<div><img width=300 src="{{ piano.picture_url }}" /></div>
+{% endblock page_content %}

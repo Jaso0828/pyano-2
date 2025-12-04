@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+
+{% block page_content %}
+<h1>All Pianos</h1>
+<a href="{% url 'pianos_create' %}" class="btn btn-outline-primary">Add piano</a>
+
+{% if pianos %}
+    <div class="row">
+        {% for piano in pianos %}
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img height=200 src="{{ piano.picture_url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ piano.model }}</h5>
+                        {% if piano.description %}
+                            <p class="card-text">{{ piano.description }}</p>
+                        {% endif %}
+                        <a href="{% url 'pianos_details' piano.pk %}" class="btn btn-outline-success">Vise detalja</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Nema niti jednog klavira u bazi. Dodaj klavir</p>
+{% endif %}
+
+
+{% endblock page_content %}

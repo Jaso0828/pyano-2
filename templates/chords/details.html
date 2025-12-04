@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+
+
+{% block page_content %}
+<a href="{% url 'chords_list' %}" class="btn btn-outline-info">Povratak na listu</a>
+
+<h1>{{ chord.name }} ({{ chord.symbol }})</h1>
+<p>Tip akorda: {{ chord.type }}</p>
+{% if chord.schema_url %}
+<div><img width=300 src="{{ chord.schema_url }}" /></div>
+{% else %}
+<div><img width=300 src="https://placehold.co/400x300" /></div>
+{% endif %}
+
+{% endblock page_content %}
