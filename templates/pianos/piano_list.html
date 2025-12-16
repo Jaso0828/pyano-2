@@ -3,20 +3,20 @@
 
 {% block page_content %}
 <h1>All Pianos</h1>
-<a href="{% url 'pianos_create' %}" class="btn btn-outline-primary">Add piano</a>
+<a href="{% url 'pianos:pianos_create' %}" class="mb-2 btn btn-outline-primary">Add piano</a>
 
-{% if pianos %}
+{% if object_list %}
     <div class="row">
-        {% for piano in pianos %}
+        {% for piano in object_list %}
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
-                    <img height=200 src="{{ piano.picture_url }}" class="card-img-top" alt="...">
+                    <img height=200 src="{{ piano.picture_url }}" class="me-1" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ piano.model }}</h5>
                         {% if piano.description %}
                             <p class="card-text">{{ piano.description }}</p>
                         {% endif %}
-                        <a href="{% url 'pianos_details' piano.pk %}" class="btn btn-outline-success">Vise detalja</a>
+                        <a href="{% url 'pianos:piano_detail' piano.pk %}" class="btn btn-outline-success">Vise detalja</a>
                     </div>
                 </div>
             </div>
