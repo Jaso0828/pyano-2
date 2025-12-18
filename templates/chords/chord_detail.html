@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+
+{% block page_content %}
+<a href="{% url 'chords:chords_list' %}" class="btn btn-outline-info">Povratak na listu</a>
+<a href="{% url 'chords:chords_update' chord.pk %}" class="btn btn-outline-primary">Update</a>
+<a href="{% url 'chords:chords_delete' chord.pk %}" class="btn btn-outline-danger">Delete</a>
+
+<h1>{{ chord.name }} ({{ chord.symbol }})</h1>
+<p>Tip akorda: {{ chord.type }}</p>
+{% if chord.scheme_url %}
+<div><img width=300 src="{{ chord.scheme_url }}" /></div>
+{% else %}
+<div><img width=300 src="https://placehold.co/400x300" /></div>
+{% endif %}
+
+{% endblock page_content %}

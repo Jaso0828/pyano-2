@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+
+{% block page_content %}
+<h1>All Chords</h1>
+<a href="{% url 'chords:chords_create' %}" class="mb-2 btn btn-outline-primary">Add chord</a>
+
+{% if chords %}
+    <div class="row">
+        {% for chords in chords %}
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img height=200 src="{{ chords.scheme_url }}" class="me-1" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ chords.name }}</h5>
+                        {% if piano.description %}
+                            <p class="card-text">{{ chords.symbol }}</p>
+                        {% endif %}
+                        <a href="{% url 'chords:chord_detail' chords.pk %}" class="btn btn-outline-success">Vise detalja</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Nema niti jednog klavira u bazi. Dodaj klavir</p>
+{% endif %}
+
+
+{% endblock page_content %}
