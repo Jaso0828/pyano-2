@@ -53,4 +53,4 @@ class PianoUpdateView(UpdateView):
 
 class PianoDeleteView(DeleteView):
     model = Piano
-    success_url = reverse_lazy('pianos:pianos_list')
+    
